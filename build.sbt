@@ -22,7 +22,7 @@ val project = Project(
       "-Djava.library.path=./sigar",
       "-Xms128m", "-Xmx2048m"),
     Keys.fork in run := true,  
-    mainClass in (Compile, run) := Some("sample.cluster.simple.SimpleClusterApp"),
+    mainClass in (Compile, run) := Some("sample.cluster.factorial.FactorialApp"),
     // make sure that MultiJvm test are compiled by the default test compilation
     compile in MultiJvm <<= (compile in MultiJvm) triggeredBy (compile in Test),
     // disable parallel tests

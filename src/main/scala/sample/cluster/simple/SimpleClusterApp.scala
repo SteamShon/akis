@@ -3,6 +3,7 @@ package sample.cluster.simple
 import com.typesafe.config.ConfigFactory
 import akka.actor.ActorSystem
 import akka.actor.Props
+import kv.Storage
 
 object SimpleClusterApp {
   def main(args: Array[String]): Unit = {
@@ -21,7 +22,7 @@ object SimpleClusterApp {
       // Create an Akka system
       val system = ActorSystem("ClusterSystem", config)
       // Create an actor that handles cluster domain events
-      system.actorOf(Props[SimpleClusterListener], name = "clusterListener")
+      system.actorOf(Props[Storage], name = "kvStorage")
     }
   }
 
